@@ -33,7 +33,7 @@ struct Fallback_wifi{
   //add an accesspoint (can be called multiple time)
   void st_addAP(const String&ssid, const String pass);
   void st_cleanAP();
-  long unsigned int st_timeout=10000; //after this timeout, consider that the connection to station is a failure
+  long unsigned int st_timeout=1000; //after this timeout, consider that the connection to station is a failure
 
 
   //--- debug strings ---

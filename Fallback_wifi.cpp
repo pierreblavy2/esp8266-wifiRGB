@@ -52,11 +52,13 @@ bool Fallback_wifi::mode_st(){
 	Serial.println("Connecting to station...");
 	unsigned int i = 0;
 	while (wifiMulti.run() != WL_CONNECTED) { 
-		// Wait for the Wi-Fi to connect: scan for Wi-Fi networks, and connect to the strongest of the networks above
-		if(i*250>=st_timeout){break;}
+    //wait
+		if(i*250>=st_timeout){Serial.println("wait timeout"); break;}
 		++i;
 		delay(250);
-		Serial.print('.');
+		Serial.print("wait ");
+    Serial.print(100.0*double(i)*250.0/double(st_timeout));
+    Serial.println("%");
 	}
 
 	if(wifiMulti.run() == WL_CONNECTED){
